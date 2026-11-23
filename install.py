@@ -16,7 +16,7 @@ def install():
             VALUES (?, ?, ?)""", 
             ("mornango do amor", "morango com baunilha", False))
 
-        connection.execute("""CREATE TABLE IF IT NOT EXISTS docinho (id INTEGER PRIMARY KEY AUTO INCREMENT, nome TEXT NOT NULL, sabor TEXT NOT NULL,
+        connection.execute("""CREATE TABLE IF NOT EXISTS docinho (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT NOT NULL, sabor TEXT NOT NULL,
         feito BOOLEAN NOT NULL DEFAULT 0)""")
         
         cursor = connection.execute("""SELECT COUNT(*) FROM docinho""")

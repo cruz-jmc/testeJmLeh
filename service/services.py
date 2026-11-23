@@ -8,22 +8,21 @@ class Services:
 
     def create(self, nome, sabor):
        if not nome or not nome.strip():
-           raise ValueError as erro:
-               print(f"Erro: {erro}")
+           raise ValueError("Erro")
        if not sabor or not sabor.strip():
-           raise ValueError as erro:
-               print(f"Erro: {erro}")
-        bolo = Bolo()
-        bolo.nome = nome.strip()
-        bolo.sabor = sabor.strip()
-        bolo.feito = False
-        bolo.id = self.repository.create(bolo)
-        return bolo
+           raise ValueError("Erro")
+        
+       bolo = Bolo()
+       bolo.nome = nome.strip()
+       bolo.sabor = sabor.strip()
+       bolo.feito = False
+       bolo.id = self.repository.create(bolo)
+       return bolo
         
         
 
     def list(self):
-        pass
+        return self.repository.find_all()
 
     def get(self, docinho_id):
         pass
