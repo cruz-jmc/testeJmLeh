@@ -6,7 +6,22 @@ class UI:
         self.services = services
 
     def show_principal_menu(self):
-        # Exibir opções
-        # Receber escolha do usuário
-        # Chamar os métodos do service
-        pass
+        while True:
+         print("=======MENU DE BOLO======")
+         print("CADASTRAR 1")
+         print("SAIR 2")
+
+         resposta = input("Digite a resposta")
+
+         if resposta == "1":
+            print("CADASTRO")
+            nome = input("Digite o nome:")
+            sabor = input("Digite o sabor:")
+            try:
+               bolo = self.services.create(nome, sabor)
+               print(f"Cadastrado! id = {bolo.id}")
+            except ValueError as erro:
+               print("Erro: {erro}")
+         if resposta == "2":
+            print("Saindo do sistema....")
+            break
