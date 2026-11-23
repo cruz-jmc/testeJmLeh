@@ -3,9 +3,17 @@ from entities.docinho import Docinho
 
 class DAOEntity:
 
-    def create(self, docinho):
-        # Inserir no banco
-        pass
+    def create(self, bolo):
+        connection = get_connection()
+        
+        try:
+            cursor = connection.execute("""INSERT INTO bolo (nome, sabor, feito) VALUES (?,?,?)""", (bolo.nome, bolo.sabor, bolo.feito))
+            connection.commit()
+            return cursor.lastrowid
+        finally:
+            connection.close
+            
+       
 
     def find_all(self):
         # Consultar todas as entidades
