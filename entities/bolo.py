@@ -1,3 +1,6 @@
 class Bolo:
-    def __init__():
-        pass
+    def __init__(id = None, nome = None, sabor = None, feito = None):
+        self.id = id
+        self.nome = nome
+        self.sabor = sabor
+        self.feito = feito
